@@ -1,6 +1,6 @@
 apiVersion: apps/v1
-kind: deployment
-metedata:
+kind: Deployment
+metadata:
   name: devsecops-app
   labels:
     app: devsecops-app
@@ -12,20 +12,14 @@ spec:
       app: devsecops-app
   template:
     metadata:
-      name: devsecops-app
       labels:
         app: devsecops-app
     spec:
-      containers:
-      - name: devsecops-app
-        image: ghcr.io/mmsalmanfaris/devsecops-githubaction-pipeline:sha-de0389b7c125f83fde23f0b27e62d43ed77977e4
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 80
-
-      # TO pull the image in ec2 instance(bcz the image is in private registry)
       imagePullSecrets:
-      - name: github-container-registry
-
-      # Also need to configure the github username and token in the ec2
-
+        - name: github-container-registry
+      containers:
+        - name: devsecops-app
+          image: ghcr.io/mmsalmanfaris/devsecops-githubaction-pipeline:sha-ecf3fec
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
