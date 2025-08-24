@@ -28,3 +28,4 @@ spec:
       - name: github-container-registry
 
       # Also need to configure the github username and token in the ec2 instance
+
