@@ -40,10 +40,10 @@ const GameHistory: React.FC<GameHistoryProps> = ({ history }) => {
         <History className="h-5 w-5 text-blue-500" />
         Game History
       </h2>
-      
+
       <div className="max-h-60 overflow-y-auto space-y-2 pr-1">
         {history.length === 0 ? (
-          <p className="text-gray-500 text-sm italic">No games played yet</p>
+          <p className="text-gray-500 text-sm italic">No games yet</p>
         ) : (
           [...history].reverse().map((game, index) => (
             <div key={index} className="p-2 bg-white rounded border border-gray-200 text-sm">
