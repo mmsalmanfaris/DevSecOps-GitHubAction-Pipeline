@@ -65,7 +65,7 @@ jobs:
       - name: Download from artifacts
         uses: actions/download-artifact@v5
         with:
-          name: build-artifacts
+          name: build-artifact
           path: dist/
     
       - name: Set up Docker Buildx
