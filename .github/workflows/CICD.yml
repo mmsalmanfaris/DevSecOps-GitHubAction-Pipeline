@@ -85,7 +85,7 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
-            type=sha,format=short
+            type=sha,format=long
       
       - name: Build Docker image
         uses: docker/build-push-action@v5
@@ -136,10 +136,10 @@ jobs:
       - name: Update deployment file
         env:
           IMAGE_TAG: sha-${{ github.sha }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
           REGISTRY: ghcr.io
         run: |
-          NEW_IMAGE="${REGISTRY}/${GITHUB_REPOSITORY}:${IMAGE_TAG}"
+          REPO_LOWER=$(echo "${GITHUB_REPOSITORY}" | tr '[:upper:]' '[:lower:]')
+          NEW_IMAGE="${REGISTRY}/${REPO_LOWER}:${IMAGE_TAG}"
 
           sed -i "s|image: ${REGISTRY}/.*|image: ${NEW_IMAGE}|g" kubernetes/deployment.yaml
 
