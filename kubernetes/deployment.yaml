@@ -19,7 +19,7 @@ spec:
         - name: github-container-registry
       containers:
         - name: devsecops-app
-          image: ghcr.io/mmsalmanfaris/devsecops-githubaction-pipeline:sha-07e23cba0ef0ef4f569e16a0acf22219d06d4550
+          image: ghcr.io/mmsalmanfaris/devsecops-githubaction-pipeline:sha-36121bdda49b4bac1e49f2d487f401a4ebc2b198
           imagePullPolicy: Always
           ports:
             - containerPort: 80
