@@ -17,8 +17,14 @@ spec:
         app: devsecops-app
     spec:
       containers:
-        - name: devsecops-app
-          image: ghcr.io/mmsalmanfaris/DevSecOps-GitHubAction-Pipeline:sha-73c46811cb4fa954ae3c8fd9a4969e608c0700df
-          imagePullPolicy: Always
-          ports:
-          - containerPort: 80
+      - name: devsecops-app
+        image: ghcr.io/mmsalmanfaris/DevSecOps-GitHubAction-Pipeline:sha-73c46811cb4fa954ae3c8fd9a4969e608c0700df
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+
+      # TO pull the image in ec2 instance(bcz the image is in private registry)
+      imagePullSecrets:
+      - name: github-container-registry
+
+      # Also need to configure the github username and token in the ec2 instance
