@@ -86,7 +86,6 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
             type=sha,format=short
-            latest
       
       - name: Build Docker image
         uses: docker/build-push-action@v5
@@ -97,16 +96,10 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           load: true
 
-      - name: Pick first Docker tag
-        id: trivy_image
-        run: |
-            first_tag=$(echo "${{ steps.meta.outputs.tags }}" | head -n1)
-            echo "tag=$first_tag" >> $GITHUB_OUTPUT
-
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
-            image-ref: ${{ steps.trivy_image.outputs.tag }}
+            image-ref: ${{ steps.meta.outputs.tags }}
             format: 'table'
             exit-code: '1'
             ignore-unfixed: true
