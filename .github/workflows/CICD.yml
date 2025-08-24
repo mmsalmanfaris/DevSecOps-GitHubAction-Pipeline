@@ -96,16 +96,21 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           load: true
-      
+
+      - name: Get Docker image tag
+        id: trivy_image
+        run: |
+          echo "tag=$(echo '${{ steps.meta.outputs.tags }}' | cut -d',' -f1)" >> $GITHUB_OUTPUT
+
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
-            image-ref: ${{ steps.meta.outputs.tags }}
-            format: 'table'
-            exit-code: '1'
-            ignore-unfixed: true
-            vuln-type: 'os,library'
-            severity: 'CRITICAL,HIGH'
+          image-ref: ${{ steps.trivy_image.outputs.tag }}
+          format: 'table'
+          exit-code: '1'
+          ignore-unfixed: true
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH'
       
       - name: Push Docker image
         uses: docker/build-push-action@v5
