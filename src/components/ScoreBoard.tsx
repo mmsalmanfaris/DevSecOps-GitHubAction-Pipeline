@@ -31,7 +31,7 @@ const ScoreBoard: React.FC<ScoreBoardProps> = ({ scores, playerNames, onNameChan
                 aria-label="Player X name"
               />
             ) : (
-              <span className="font-medium">{playerNames?.X ?? 'Pushpa Raj'}</span>
+              <span className="font-medium">{playerNames?.X ?? 'Player'}</span>
             )}
           </div>
           <span className="text-lg font-bold text-indigo-600">{scores.X}</span>
@@ -48,7 +48,7 @@ const ScoreBoard: React.FC<ScoreBoardProps> = ({ scores, playerNames, onNameChan
                 aria-label="Player O name"
               />
             ) : (
-              <span className="font-medium">{playerNames?.O ?? 'Appanna'}</span>
+              <span className="font-medium">{playerNames?.O ?? 'Computer'}</span>
             )}
           </div>
           <span className="text-lg font-bold text-purple-600">{scores.O}</span>

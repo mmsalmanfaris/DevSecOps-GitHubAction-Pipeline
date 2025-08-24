@@ -24,7 +24,7 @@ function App() {
   const [playWithComputer, setPlayWithComputer] = useState(false);
 
   // Editable player names
-  const [playerNames, setPlayerNames] = useState({ X: 'Pushpa Raj', O: 'Appanna' });
+  const [playerNames, setPlayerNames] = useState({ X: 'Player', O: 'Computer' });
 
   // Check for winner or draw
   useEffect(() => {
