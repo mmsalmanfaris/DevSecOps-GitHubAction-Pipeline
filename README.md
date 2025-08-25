@@ -1,8 +1,8 @@
-# 🚀 DevSecOps Pipeline Implementation  
+# DevSecOps Pipeline Implementation  
 
 This project demonstrates a **secure CI/CD pipeline** implementation by integrating **DevSecOps and GitOps practices**. The goal is to ensure security, reliability, and automation in the software delivery process.  
 
-### 🔐 Key Highlights  
+### Key Highlights  
 - Code and container image **scanning for vulnerabilities**  
 - **Private repositories and workflows** to prevent outsider access  
 - **GitHub Container Registry** for secure image storage within the GitHub ecosystem  
@@ -11,15 +11,13 @@ This project demonstrates a **secure CI/CD pipeline** implementation by integrat
 
 ---
 
-## 📸 Pipeline Workflow  
+## Pipeline Workflow  
 
 <img width="2996" height="1774" alt="devsecops pipeline" src="https://github.com/user-attachments/assets/451b8d6e-16da-49c6-9a1e-83049b07c189" />  
 
-<img width="1844" height="961" alt="Screenshot From 2025-08-25 02-07-22" src="https://github.com/user-attachments/assets/13902eff-a5c9-46dd-b274-8f7cdad23c4d" />  
-
 ---
 
-## 🛠️ Technologies Used  
+## 🛠Technologies Used  
 
 - **Frontend**: React 18, TypeScript, Tailwind CSS, Lucide React (icons)  
 - **Pipeline**: GitHub Actions, GitHub Container Registry  
@@ -27,9 +25,9 @@ This project demonstrates a **secure CI/CD pipeline** implementation by integrat
 
 ---
 
-## ⚡ Getting Started  
+## Getting Started  
 
-### ✅ Prerequisites  
+### Prerequisites  
 - [Node.js](https://nodejs.org/) (v14 or higher)  
 - npm or yarn  
 - Docker (for containerized setup)  
